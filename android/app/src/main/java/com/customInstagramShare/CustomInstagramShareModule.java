@@ -56,7 +56,7 @@ public class CustomInstagramShareModule extends ReactContextBaseJavaModule imple
         public void onActivityResult(Activity activity, final int requestCode, final int resultCode, final Intent intent) {
             Log.d("------------>resultCode", "" + resultCode);
             if (requestCode == INSTAGRAM_SHARE_REQUEST) {
-                callback.invoke("Image shared successfully with instagram.");
+                callback.invoke("Imagem compartilhada no Instagram");
             }
         }
     }
@@ -73,8 +73,8 @@ public class CustomInstagramShareModule extends ReactContextBaseJavaModule imple
        String type = "image/*";
        String filename = mediaPath.substring(mediaPath.lastIndexOf("/")+1);
 
-       if(isAppInstalled("com.instagram.android") == false){
-         callback.invoke("Sorry,instagram is not installed in your device.");
+       if(isAppInstalled("com.instagram.android") == false) {
+         callback.invoke("Instagram não está instalado no dispositivo");
        }else{
          File media = new File(mediaPath);
           if(media.exists()){
@@ -94,7 +94,7 @@ public class CustomInstagramShareModule extends ReactContextBaseJavaModule imple
             // Broadcast the Intent.
             mActivity.startActivityForResult(Intent.createChooser(share, "Share to"),INSTAGRAM_SHARE_REQUEST);
           } else{
-            callback.invoke("Sorry,file does not exist on given path.");
+            callback.invoke("A imagem não existe no caminho indicado");
           }
        }
     }
