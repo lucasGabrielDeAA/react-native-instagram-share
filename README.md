@@ -1,5 +1,7 @@
 # react-native-instagram-share
 
+Mobile application to implement images's share on instagram.
+
 ## Installation
 
 ```
