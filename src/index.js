@@ -3,7 +3,11 @@ import { Platform, StyleSheet, Text, View, TouchableOpacity, NativeModules, Link
 import ImagePicker from 'react-native-image-picker';
 import { AppInstalledChecker } from 'react-native-check-app-install';
 
-const { CustomInstagramShare } = NativeModules;
+let CustomInstagramShare = null;
+
+if (Platform.OS === 'android') {
+  CustomInstagramShare = NativeModules.CustomInstagramShare;
+}
 
 class App extends Component {
   openGallery = () => {
